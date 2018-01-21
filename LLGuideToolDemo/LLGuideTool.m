@@ -44,12 +44,12 @@
     LLGuideTool * tool = [LLGuideTool share];
     if (!tool.isShow) {
         BOOL haveShowed = [LLGuideTool checkIfGuideHaveShowed1:guide.name];
-//        if (!haveShowed) {
+        if (!haveShowed) {
             tool.currentGuide = guide;
             [tool prepareParameter];
             [tool refreshUI];
             [tool show];
-//        }
+        }
     }
 }
 
@@ -87,26 +87,26 @@
     switch (self.currentGuide.positionType) {
         case LLGuidePositionType_Top:
         {
-            x = self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width;
+            x = self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width + self.currentGuide.targetRect.size.width/2;
             y = CGRectGetMaxY(self.currentGuide.targetRect);
         }
             break;
         case LLGuidePositionType_Right:
         {
             x = self.currentGuide.targetRect.origin.x - width;
-            y = self.currentGuide.targetRect.origin.y - self.currentGuide.positionOfImageToTarget * height;
+            y = self.currentGuide.targetRect.origin.y - self.currentGuide.positionOfImageToTarget * height + self.currentGuide.targetRect.size.height/2;
         }
             break;
         case LLGuidePositionType_Bottom:
         {
-            x = self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width;
+            x = self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width + self.currentGuide.targetRect.size.width/2;
             y = self.currentGuide.targetRect.origin.y - height;
         }
             break;
         case LLGuidePositionType_Left:
         {
             x = CGRectGetMaxX(self.currentGuide.targetRect);
-            y = self.currentGuide.targetRect.origin.y - self.currentGuide.positionOfImageToTarget * height;
+            y = self.currentGuide.targetRect.origin.y - self.currentGuide.positionOfImageToTarget * height + self.currentGuide.targetRect.size.height/2;
         }
             break;
     }
