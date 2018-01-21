@@ -8,12 +8,6 @@
 
 #import "LLGuideTool.h"
 
-#define KScreenWidth  [UIScreen mainScreen].bounds.size.width
-#define KScreenHeight  [UIScreen mainScreen].bounds.size.height
-
-#define ScaleWith KScreenWidth/750.0
-#define ScaleHeight KScreenHeight/1336.0
-
 @interface LLGuideTool()
 @property(nonatomic,strong)LLGuideModel * currentGuide;
 
@@ -28,10 +22,6 @@
 @property(nonatomic,strong)UIImage * tipImage;
 
 @property(nonatomic,strong)CAShapeLayer * shapeLayer;
-
-@property(nonatomic, assign)CGFloat scaleWidthOfTool;
-
-@property(nonatomic, assign)CGFloat scaleHeightOfTool;
 
 @property(nonatomic, assign)BOOL isShow;
 
@@ -54,12 +44,12 @@
     LLGuideTool * tool = [LLGuideTool share];
     if (!tool.isShow) {
         BOOL haveShowed = [LLGuideTool checkIfGuideHaveShowed1:guide.name];
-        if (!haveShowed) {
+//        if (!haveShowed) {
             tool.currentGuide = guide;
             [tool prepareParameter];
             [tool refreshUI];
             [tool show];
-        }
+//        }
     }
 }
 
@@ -87,23 +77,40 @@
 {
     self.redius = 0;
     
-    BOOL isLandscape = UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
-    if (isLandscape) {
-        self.scaleWidthOfTool = KScreenWidth/1336;
-        self.scaleHeightOfTool = KScreenHeight/750;
-    }
-    else
-    {
-        self.scaleWidthOfTool = ScaleWith;
-        self.scaleHeightOfTool = ScaleHeight;
-    }
-    
     self.redius = self.currentGuide.targetRect.size.width/2;
     self.tipImage = self.currentGuide.image;
     
     CGFloat width = self.tipImage.size.width;
     CGFloat height = self.tipImage.size.height;
-    self.tipIVFrame = CGRectMake(self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width, self.currentGuide.targetRect.origin.y + self.currentGuide.targetRect.size.height, width, height);
+    
+    CGFloat x,y;
+    switch (self.currentGuide.positionType) {
+        case LLGuidePositionType_Top:
+        {
+            x = self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width;
+            y = CGRectGetMaxY(self.currentGuide.targetRect);
+        }
+            break;
+        case LLGuidePositionType_Right:
+        {
+            x = self.currentGuide.targetRect.origin.x - width;
+            y = self.currentGuide.targetRect.origin.y - self.currentGuide.positionOfImageToTarget * height;
+        }
+            break;
+        case LLGuidePositionType_Bottom:
+        {
+            x = self.currentGuide.targetRect.origin.x - self.currentGuide.positionOfImageToTarget * width;
+            y = self.currentGuide.targetRect.origin.y - height;
+        }
+            break;
+        case LLGuidePositionType_Left:
+        {
+            x = CGRectGetMaxX(self.currentGuide.targetRect);
+            y = self.currentGuide.targetRect.origin.y - self.currentGuide.positionOfImageToTarget * height;
+        }
+            break;
+    }
+    self.tipIVFrame = CGRectMake(x, y, width, height);
 }
 
 -(void)refreshUI
@@ -162,5 +169,15 @@
     
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:self.currentGuide.name];
     self.isShow = NO;
+}
+
+-(UIImageView *)tipImageView
+{
+    if (!_tipImageView) {
+        _tipImageView = [[UIImageView alloc]init];
+        [self addSubview:_tipImageView];
+        _tipImageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _tipImageView;
 }
 @end
