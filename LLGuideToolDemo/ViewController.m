@@ -24,12 +24,12 @@
     
     [self initUI];
     
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(replay)];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(play)];
     tap.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:tap];
 }
 
--(void)replay
+-(void)play
 {
     CGRect rect1 = self.topButton.frame;
     CGRect rect2 = self.bottomButton.frame;
