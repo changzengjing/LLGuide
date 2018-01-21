@@ -13,8 +13,8 @@
 		6A75D9B220149E85004CA597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A75D9B120149E85004CA597 /* Assets.xcassets */; };
 		6A75D9B520149E85004CA597 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A75D9B320149E85004CA597 /* LaunchScreen.storyboard */; };
 		6A75D9B820149E85004CA597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A75D9B720149E85004CA597 /* main.m */; };
-		6A75D9C220149EBA004CA597 /* LLGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A75D9BE20149EB5004CA597 /* LLGuideTool.m */; };
-		6A75D9C320149EBA004CA597 /* LLGuideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A75D9C020149EB8004CA597 /* LLGuideModel.m */; };
+		6A75D9D02014D0F1004CA597 /* LLGuideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A75D9CD2014D0F1004CA597 /* LLGuideModel.m */; };
+		6A75D9D12014D0F1004CA597 /* LLGuideTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A75D9CF2014D0F1004CA597 /* LLGuideTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		6A75D9B420149E85004CA597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A75D9B620149E85004CA597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A75D9B720149E85004CA597 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6A75D9BE20149EB5004CA597 /* LLGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLGuideTool.m; sourceTree = "<group>"; };
-		6A75D9BF20149EB7004CA597 /* LLGuideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLGuideModel.h; sourceTree = "<group>"; };
-		6A75D9C020149EB8004CA597 /* LLGuideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLGuideModel.m; sourceTree = "<group>"; };
-		6A75D9C120149EBA004CA597 /* LLGuideTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLGuideTool.h; sourceTree = "<group>"; };
+		6A75D9CC2014D0F1004CA597 /* LLGuideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLGuideModel.h; sourceTree = "<group>"; };
+		6A75D9CD2014D0F1004CA597 /* LLGuideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLGuideModel.m; sourceTree = "<group>"; };
+		6A75D9CE2014D0F1004CA597 /* LLGuideTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLGuideTool.h; sourceTree = "<group>"; };
+		6A75D9CF2014D0F1004CA597 /* LLGuideTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLGuideTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +48,7 @@
 		6A75D99C20149E85004CA597 = {
 			isa = PBXGroup;
 			children = (
+				6A75D9CB2014D0F1004CA597 /* LLGuide */,
 				6A75D9A720149E85004CA597 /* LLGuideToolDemo */,
 				6A75D9A620149E85004CA597 /* Products */,
 			);
@@ -64,10 +65,6 @@
 		6A75D9A720149E85004CA597 /* LLGuideToolDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6A75D9BF20149EB7004CA597 /* LLGuideModel.h */,
-				6A75D9C020149EB8004CA597 /* LLGuideModel.m */,
-				6A75D9C120149EBA004CA597 /* LLGuideTool.h */,
-				6A75D9BE20149EB5004CA597 /* LLGuideTool.m */,
 				6A75D9A820149E85004CA597 /* AppDelegate.h */,
 				6A75D9A920149E85004CA597 /* AppDelegate.m */,
 				6A75D9AB20149E85004CA597 /* ViewController.h */,
@@ -79,6 +76,17 @@
 				6A75D9B720149E85004CA597 /* main.m */,
 			);
 			path = LLGuideToolDemo;
+			sourceTree = "<group>";
+		};
+		6A75D9CB2014D0F1004CA597 /* LLGuide */ = {
+			isa = PBXGroup;
+			children = (
+				6A75D9CC2014D0F1004CA597 /* LLGuideModel.h */,
+				6A75D9CD2014D0F1004CA597 /* LLGuideModel.m */,
+				6A75D9CE2014D0F1004CA597 /* LLGuideTool.h */,
+				6A75D9CF2014D0F1004CA597 /* LLGuideTool.m */,
+			);
+			path = LLGuide;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A75D9C320149EBA004CA597 /* LLGuideModel.m in Sources */,
-				6A75D9C220149EBA004CA597 /* LLGuideTool.m in Sources */,
+				6A75D9D12014D0F1004CA597 /* LLGuideTool.m in Sources */,
+				6A75D9D02014D0F1004CA597 /* LLGuideModel.m in Sources */,
 				6A75D9AD20149E85004CA597 /* ViewController.m in Sources */,
 				6A75D9B820149E85004CA597 /* main.m in Sources */,
 				6A75D9AA20149E85004CA597 /* AppDelegate.m in Sources */,

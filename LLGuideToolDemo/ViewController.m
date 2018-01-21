@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "LLGuideTool.h"
-#import "LLGuideModel.h"
 
 @interface ViewController ()
 
@@ -35,11 +34,11 @@
     CGRect rect1 = self.topButton.frame;
     CGRect rect2 = self.bottomButton.frame;
     
-    NSMutableArray<NSValue*>* rectArray = @[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2]];
-    NSArray<UIImage*>* imageArray = @[[UIImage imageNamed:@"01_input02"],[UIImage imageNamed:@"01_input01"]];
-    NSArray<NSNumber*>* positionArray = @[@(0.05),@(0.6)];
-    NSArray<NSString*>* nameArray = @[@"name1",@"name2"];
-    NSArray<NSNumber*>* positionType = @[@(LLGuidePositionType_Top),@(LLGuidePositionType_Bottom)];
+    NSMutableArray<NSValue*>* rectArray = @[[NSValue valueWithCGRect:rect1],[NSValue valueWithCGRect:rect2]];//目标控件在key window坐标系下的位置
+    NSArray<UIImage*>* imageArray = @[[UIImage imageNamed:@"01_input02"],[UIImage imageNamed:@"01_input01"]];//提示箭头及文字图片
+    NSArray<NSNumber*>* positionArray = @[@(0.05),@(0.6)];//箭头相对于图片的比例位置
+    NSArray<NSString*>* nameArray = @[@"name1",@"name2"];//每个guide的名字，防止重复播放
+    NSArray<NSNumber*>* positionType = @[@(LLGuidePositionType_Top),@(LLGuidePositionType_Bottom)];//目标控件相对于提示文字图片的位置
     LLGuideModel * lastModel;
     LLGuideModel * firstModel;
     for (int i = 0; i < rectArray.count; i++) {
